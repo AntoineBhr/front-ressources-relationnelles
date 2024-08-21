@@ -45,14 +45,24 @@ jobs:
     - name: Make gradlew executable
       run: chmod +x android/gradlew
 
+    - name: Create signing key (replace with your secrets)
+      run: |
+        mkdir -p android/app/keystore
+        echo "${{ secrets.ANDROID_KEYSTORE_BASE64 }}" | base64 --decode > android/app/keystore/my-release-key.jks
+
     - name: Build Android APK
       run: cd android && ./gradlew assembleRelease --stacktrace --info --debug
 
     - name: List APK files
       run: ls -alh android/app/build/outputs/apk/release/
 
+    - name: Rename APK for consistency
+      run: |
+        cd android/app/build/outputs/apk/release
+        mv app-release-unsigned.apk app-release.apk
+
     - name: Upload APK
       uses: actions/upload-artifact@v3
       with:
         name: android-apk
-        path: android/app/build/outputs/apk/release/app-release-unsigned.apk
+        path: android/app/build/outputs/apk/release/app-release.apk
