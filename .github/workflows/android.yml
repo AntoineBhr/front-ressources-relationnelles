@@ -46,7 +46,10 @@ jobs:
       run: chmod +x android/gradlew
 
     - name: Build Android APK
-      run: cd android && ./gradlew assembleRelease
+      run: cd android && ./gradlew assembleRelease --stacktrace --info --debug
+
+    - name: List APK files
+      run: ls -alh android/app/build/outputs/apk/release/
 
     - name: Upload APK
       uses: actions/upload-artifact@v3
