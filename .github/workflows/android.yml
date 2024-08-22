@@ -45,8 +45,14 @@ jobs:
     - name: Make gradlew executable
       run: chmod +x android/gradlew
 
-    - name: Build Android APK with Capacitor
-      run: ionic capacitor build android
+    - name: Build Android APK
+      run: cd android && ./gradlew assembleDebug --stacktrace --info --debug
+
+    - name: List APK release files
+      run: ls -alh android/app/build/outputs/apk/release/
+
+    - name: List APK debug files
+      run: ls -alh android/app/build/outputs/apk/debug/
 
     - name: Upload Unsigned APK
       uses: actions/upload-artifact@v3
