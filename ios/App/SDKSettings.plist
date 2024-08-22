@@ -5,6 +5,10 @@
     <key>CODE_SIGNING_REQUIRED</key>
     <string>NO</string>
     <key>AD_HOC_CODE_SIGNING_ALLOWED</key>
-    <string>YES</string>
+    <string>NO</string>
+    <key>CODE_SIGN_IDENTITY</key>
+    <string></string>
+    <key>CODE_SIGN_ENTITLEMENTS</key>
+    <string></string>
 </dict>
 </plist>
