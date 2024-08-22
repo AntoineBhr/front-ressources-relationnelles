@@ -46,7 +46,7 @@ jobs:
       run: chmod +x android/gradlew
 
     - name: Build Android APK with Capacitor
-      run: npx cap build android
+      run: ionic capacitor build android
 
     - name: Upload Unsigned APK
       uses: actions/upload-artifact@v3
