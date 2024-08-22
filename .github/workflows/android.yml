@@ -42,9 +42,6 @@ jobs:
     - name: Sync Capacitor
       run: ionic cap sync android
 
-    - name: Add Android platform
-      run: npx cap add android
-
     - name: Build Android APK with Capacitor
       run: npx cap build android --no-signing
 
