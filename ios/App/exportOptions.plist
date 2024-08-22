@@ -6,5 +6,7 @@
     <string>development</string>
     <key>signingStyle</key>
     <string>manual</string>
+    <key>compileBitcode</key>
+    <false/>
 </dict>
 </plist>
