@@ -3,6 +3,8 @@
 <plist version="1.0">
 <dict>
     <key>method</key>
-    <string>development</string> <!-- Utiliser 'development' pour les builds de développement -->
+    <string>development</string>
+    <key>signingStyle</key>
+    <string>manual</string>
 </dict>
 </plist>

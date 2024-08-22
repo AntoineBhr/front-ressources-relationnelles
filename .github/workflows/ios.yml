@@ -1,4 +1,4 @@
-name: Build iOS IPA
+name: Build iOS IPA Debug
 
 on:
   push:
@@ -35,6 +35,9 @@ jobs:
 
     - name: Sync Capacitor
       run: ionic cap sync ios
+
+    - name: Create exportOptions.plist
+      run: echo '<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd"><plist version="1.0"><dict><key>method</key><string>development</string><key>signingStyle</key><string>manual</string></dict></plist>' > ios/App/exportOptions.plist
 
     - name: Build IPA Debug
       run: |
