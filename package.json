@@ -26,6 +26,7 @@
     "axios": "^1.7.2",
     "cocoapods": "^0.0.0",
     "ionicons": "^7.0.0",
+    "ressources-relationnelles": "file:",
     "vue": "^3.3.0",
     "vue-router": "^4.2.0",
     "vue-screen": "^2.4.0"

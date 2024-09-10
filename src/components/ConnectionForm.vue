@@ -56,17 +56,17 @@
         console.log(response.data)
         userData.value = response.data.user;
         const data = response.data;
-        if(data.role.id != 1 && (deviceType.value == "android" || deviceType.value == "iPhone")){
-          alert("Vous ne pouvez pas vous connecter en tant qu'administrateur ou modérateur depuis ce type d'appareil.")
-          return;
-        }
+        // if(data.role.id != 1 && (deviceType.value == "android" || deviceType.value == "iPhone")){
+        //   alert("Vous ne pouvez pas vous connecter en tant qu'administrateur ou modérateur depuis ce type d'appareil.")
+        //   return;
+        // }
         Preferences.set({key: "id_utilisateur", value: data.id})
         Preferences.set({key: "nom_utilisateur", value: data.nom})
         Preferences.set({key: "prenom_utilisateur", value: data.prenom})
-        Preferences.set({key: "mail_utilisateur", value: data.mail})
+        Preferences.set({key: "mail_utilisateur", value: data.email})
         Preferences.set({key: "departement_utilisateur", value: data.departement})
         Preferences.set({key: "est_active_utilisateur", value: data.est_active})
-        Preferences.set({key: "role_utilisateur", value: data.role.id})
+        Preferences.set({key: "api_token", value: data.api_token})
         // Ajouter les infos utilisateur en storage
         router.push('/home');
       } else {
