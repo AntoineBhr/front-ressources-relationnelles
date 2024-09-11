@@ -66,7 +66,7 @@
         Preferences.set({key: "mail_utilisateur", value: data.email})
         Preferences.set({key: "departement_utilisateur", value: data.departement})
         Preferences.set({key: "est_active_utilisateur", value: data.est_active})
-        Preferences.set({key: "api_token", value: data.api_token})
+        Preferences.set({key: "api_token", value: data.apiToken})
         // Ajouter les infos utilisateur en storage
         router.push('/home');
       } else {

@@ -55,6 +55,8 @@ import { Preferences } from '@capacitor/preferences';
 	const typeRessource = ref('');
 	const typeRelation = ref([]);
 	const id_utilisateur = ref('');
+	const api_token = ref('');
+
 
 	const submitForm = async () => {
 		const ressourceData = {
@@ -70,9 +72,13 @@ import { Preferences } from '@capacitor/preferences';
 		console.log(jsonString);
 
 		try {
-		const response = await axios.post(`${API_BASE_URL}/ressource/`, jsonString, { 
-			headers: {'Content-Type': 'application/json'}
-		});
+
+			const response = await axios.post(`${API_BASE_URL}/api-auth/ressource/new/`, jsonString, { 
+				headers: {
+					'Content-Type': 'application/json',
+					'Authorization': `Bearer ${api_token.value}`
+				}
+			});
 			if(response){
 				alert("Ressource publiée")
 				titre.value = ''
@@ -136,6 +142,10 @@ import { Preferences } from '@capacitor/preferences';
 		Preferences.get({key: "id_utilisateur"}).then(result => {
 			console.log("retreived data : ", id_utilisateur, result.value)
 			id_utilisateur.value = result.value;
+		})
+		Preferences.get({key: "api_token"}).then(result => {
+			console.log("retreived data : ", api_token, result.value)
+			api_token.value = result.value;
 		})
 	});
 
